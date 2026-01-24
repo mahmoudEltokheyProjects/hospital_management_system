@@ -4,8 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Patient extends Model
+
+class Patient extends Authenticatable
 {
     use HasFactory;
+    protected $fillable = [
+        'name','email','password','phone','status',
+    ];
+    protected $hidden = ['password', 'remember_token'];
 }

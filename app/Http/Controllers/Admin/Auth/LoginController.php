@@ -9,52 +9,59 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    //use AuthenticatesUsers;
-
     use AuthTrait;
-    // ============ __construct ============
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }
-    // ============ loginForm ============
-    public function loginForm($type)
+    // ===== admin Login =====
+    public function adminLogin()
     {
-        return view('admin.auth.login',compact('type'));
+        return view('admin.auth.login', ['type' => 'admin']);
     }
-    // ============ login ============
+    // ===== doctor Login =====
+    public function doctorLogin()
+    {
+        return view('admin.auth.login', ['type' => 'doctor']);
+    }
+    // ===== patient Login =====
+    public function patientLogin()
+    {
+        return view('admin.auth.login', ['type' => 'patient']);
+    }
+    // ===== LOGIN ACTION =====
     public function login(Request $request)
     {
-        if (Auth::guard($this->checkGuard($request))->attempt(['email' => $request->email, 'password' => $request->password]))
+        $request->validate([
+            'email'    => 'required|email',
+            'password' => 'required',
+            'type'     => 'required|in:admin,doctor,patient',
+        ]);
+
+        $guard = $this->checkGuard($request);
+
+        if (Auth::guard($guard)->attempt($request->only('email', 'password'))) 
         {
-            return $this->redirect($request);
+            $request->session()->regenerate();
+            // ✅ MUST RETURN
+            return $this->redirectAfterLogin($request);
         }
-        else
-        {
-            return redirect()->back()->with('message', 'يوجد خطا في كلمة المرور او اسم المستخدم');
-        }
+        return back()->withErrors([
+            'email' => 'Invalid credentials',
+        ]);
     }
-    // ============ logout ============
-    public function logout(Request $request,$type)
+
+    // ===== LOGOUT =====
+    public function logout(Request $request)
     {
-        // logout according to "type" ,
-        Auth::guard($type)->logout();
+        foreach (['admin', 'doctor', 'patient', 'web'] as $guard) {
+            Auth::guard($guard)->logout();
+        }
 
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('dashboard.selection');
     }
 }

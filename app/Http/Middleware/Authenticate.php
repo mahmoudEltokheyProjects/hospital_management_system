@@ -15,20 +15,10 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        if (!$request->expectsJson())
+        if (! $request->expectsJson()) 
         {
-            if (Request::is(app()->getLocale() . '/dashboard/patient'))
-            {
-                return route('dashboard.selection');
-            }
-            elseif(Request::is(app()->getLocale() . '/dashboard/doctor'))
-            {
-                return route('dashboard.selection');
-            }
-            else
-            {
-                return route('dashboard.selection');
-            }
+            return route('admin.dashboard.selection');
         }
     }
+
 }

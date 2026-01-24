@@ -8,13 +8,21 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     // ++++++++++++ login selection page ++++++++++++
-    public function index()
+    public function loginSelection()
     {
         return view('admin.auth.selection');
     }
     // ++++++++++++ dashboard page ++++++++++++
-    public function dashboard()
+    public function doctor_dashboard()
     {
-        return view('dashboard');
+        return view('admin.alerts');
+    }
+    public function patient_dashboard()
+    {
+        return view('admin.accordion');
+    }
+    public function admin_dashboard()
+    {
+        return view('admin.badge');
     }
 }

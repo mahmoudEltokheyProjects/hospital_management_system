@@ -51,9 +51,7 @@
                             @endforeach
                         </div>
                     </div>
-
                     {{-- +++++++++++++++++++++++++++ end : Language Switcher +++++++++++++++++++++++++++ --}}
-
                 </li>
             </ul>
             <div class="nav nav-item  navbar-nav-right ml-auto">
@@ -258,16 +256,21 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="dropdown-item" href=""><i class="bx bx-user-circle"></i>الصفحة الشخصية</a>
+                        <a class="dropdown-item" href="">
+                            <i class="bx bx-user-circle"></i>
+                            الصفحة الشخصية
+                        </a>
                         <a class="dropdown-item" href=""><i class="bx bx-cog"></i> الاعدادات</a>
                         <a class="dropdown-item" href=""><i class="bx bxs-inbox"></i>الخاص</a>
                         <a class="dropdown-item" href=""><i class="bx bx-envelope"></i>الرسائل</a>
                         <a class="dropdown-item" href=""><i class="bx bx-slider-alt"></i> اعدادات الحساب</a>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        {{-- ++++++++++++++ Logout ++++++++++++++ --}}
+                        <a class="dropdown-item" href="{{ route('dashboard.logout') }}"
                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                            <i class="bx bx-log-out"></i>تسجيل خروج
+                            <i class="bx bx-log-out"></i>
+                            تسجيل خروج
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                        <form id="logout-form" action="{{ route('dashboard.logout') }}" method="POST"
                             style="display: none;">
                             @csrf
                         </form>

@@ -16,11 +16,11 @@ class RouteServiceProvider extends ServiceProvider
      * Typically, users are redirected here after authentication.
      *
      * @var string
-     */
+    */
     public const HOME       = '/';
-    public const ADMIN      = 'dashboard/';
-    public const PATIENT    = '/dashboard/patient/';
-    public const DOCTOR     = '/dashboard/doctor/';
+    public const ADMIN      = '/dashboard';
+    public const PATIENT    = '/dashboard/patient';
+    public const DOCTOR     = '/dashboard/doctor';
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
      *
@@ -35,8 +35,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
-                ->group(base_path('routes/web.php'));
+            // Route::middleware('web')
+            //     ->group(base_path('routes/web.php'));
             // +++++++++++++++++ site route file +++++++++++++++++
             Route::middleware('site')
                 ->prefix('')

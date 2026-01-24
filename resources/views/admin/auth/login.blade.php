@@ -22,7 +22,7 @@
                                         <a href="{{ url('/' . $page='Home') }}">
                                             <img src="{{URL::asset('assets/img/brand/favicon.png')}}" class="sign-favicon ht-40" alt="logo">
                                         </a>
-                                        <h1 class="main-logo1 ml-1 mr-0 my-auto tx-28">Mora<span>So</span>ft</h1></div>
+                                        <h1 class="main-logo1 ml-1 mr-0 my-auto tx-28">me<span style="color:#f00">zee</span>ta</h1></div>
                                     <div class="card-sigin">
                                         <div class="main-signup-header">
                                             @if($type == 'patient')
@@ -34,6 +34,7 @@
                                             @endif
                                             <form method="POST" action="{{ route('dashboard.login') }}">
                                                 @csrf
+                                                <input type="hidden" name="type" value="{{ $type }}">
                                                 {{-- +++++++++++++++++ Email inputfield ++++++++++++++++++ --}}
                                                 <div class="form-group">
                                                     <label>
@@ -42,32 +43,26 @@
                                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                                     @error('email')
                                                     <span class="invalid-feedback" role="alert">
-                                                     <strong>{{ $message }}</strong>
-                                                     </span>
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
                                                     @enderror
                                                 </div>
                                                 {{-- +++++++++++++++++ password inputfield ++++++++++++++++++ --}}
-                                                <div class="form-group">
-                                                    <label>
-                                                        {{ __('Frontend/frontend.login_label2') }}
-                                                    </label>
-                                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                <div class="form-group position-relative">
+                                                    <label for="userPassword">{{ __('Password') }}</label>
+                                                    <div class="position-relative">
+                                                        <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                                            id="userPassword" name="password"
+                                                            placeholder="{{ __('Enter your password') }}">
+                                                        <i id="toggleIcon" class="fas fa-eye position-absolute"
+                                                        style="top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"
+                                                        onclick="togglePassword()"></i>
+                                                    </div>
                                                     @error('password')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
                                                     @enderror
-                                                    {{-- +++++++++++++++++ Remember Me Checkbox ++++++++++++++++++ --}}
-                                                    <div class="form-group row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                                                <label class="form-check-label" for="remember">
-                                                                    {{ __('Frontend/frontend.login_remember') }}
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                                 {{-- +++++++++++++++++ Login Button ++++++++++++++++++ --}}
                                                 <button type="submit" class="btn btn-main-primary btn-block mb-3">
@@ -92,11 +87,11 @@
                 <div class="row wd-100p mx-auto text-center">
                     <div class="col-md-12 col-lg-12 col-xl-12 my-auto mx-auto wd-100p">
                         @if($type == 'patient')
-                            <img src="{{ asset('assets/img/selection_page/bg/student_login.jpg') }}" class="my-auto ht-xl-80p wd-md-100p wd-xl-80p mx-auto" alt="logo">
+                            <img src="{{ asset('assets/img/selection_page/patient_login.png') }}" class="my-auto ht-xl-80p wd-md-100p wd-xl-80p mx-auto" alt="logo">
                         @elseif($type == 'doctor')
-                            <img src="{{ asset('assets/img/selection_page/bg/parent_login.avif') }}" class="my-auto ht-xl-80p wd-md-100p wd-xl-80p mx-auto" alt="logo">
+                            <img src="{{ asset('assets/img/selection_page/doctor_login.png') }}" class="my-auto ht-xl-80p wd-md-100p wd-xl-80p mx-auto" alt="logo">
                         @else
-                            <img src="{{ asset('assets/img/selection_page/bg/login.jpg') }}" class="my-auto ht-xl-80p wd-md-100p wd-xl-80p mx-auto" alt="logo">
+                            <img src="{{ asset('assets/img/selection_page/admin_login.png') }}" class="my-auto ht-xl-80p wd-md-100p wd-xl-80p mx-auto" alt="logo">
                         @endif
                     </div>
                 </div>
@@ -106,4 +101,25 @@
     </div>
 @endsection
 @section('js')
+{{-- ++++++++++++++++ toggling password visibility ++++++++++++++++ --}}
+<script>
+    function togglePassword()
+    {
+        var passwordInput = document.getElementById("userPassword");
+        var toggleIcon = document.getElementById("toggleIcon");
+
+        if (passwordInput.type === "password")
+        {
+            passwordInput.type = "text";
+            toggleIcon.classList.remove("fa-eye");
+            toggleIcon.classList.add("fa-eye-slash");
+        }
+        else
+        {
+            passwordInput.type = "password";
+            toggleIcon.classList.remove("fa-eye-slash");
+            toggleIcon.classList.add("fa-eye");
+        }
+    }
+</script>
 @endsection

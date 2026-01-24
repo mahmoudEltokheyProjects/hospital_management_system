@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('css')
 <!---Internal  Prism css-->
 <link href="{{URL::asset('assets/plugins/prism/prism.css')}}" rel="stylesheet">
@@ -10,7 +10,8 @@
 				<div class="breadcrumb-header justify-content-between">
 					<div class="my-auto">
 						<div class="d-flex">
-							<h4 class="content-title mb-0 my-auto">Elements</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ Badge</span>
+							<h4 class="content-title mb-0 my-auto">Admin Dashboard</h4>
+							<span class="text-muted mt-1 tx-13 mr-2 mb-0">/ Badge</span>
 						</div>
 					</div>
 					<div class="d-flex my-xl-auto right-content">
@@ -48,7 +49,7 @@
 						<div class="card mg-b-20" id="badge">
 							<div class="card-body">
 								<div class="main-content-label mg-b-5">
-									Simple Badges
+									Admin Dashboard
 								</div>
 								<p class="mg-b-20 text-muted card-sub-title">Badges scale to match the size of the immediate parent element by using relative font sizing and em units...</p>
 								<div class="text-wrap">

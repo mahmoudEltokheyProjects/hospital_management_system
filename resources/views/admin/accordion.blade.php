@@ -8,18 +8,22 @@
 				<div class="breadcrumb-header justify-content-between">
 					<div class="my-auto">
 						<div class="d-flex">
-							<h4 class="content-title mb-0 my-auto">Advanced ui</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ Accordions</span>
+							<h4 class="content-title mb-0 my-auto">Patient Dashboard</h4>
+							<span class="text-muted mt-1 tx-13 mr-2 mb-0">/ Accordions</span>
 						</div>
 					</div>
 					<div class="d-flex my-xl-auto right-content">
 						<div class="pr-1 mb-3 mb-xl-0">
-							<button type="button" class="btn btn-info btn-icon ml-2"><i class="mdi mdi-filter-variant"></i></button>
+							<button type="button" class="btn btn-info btn-icon ml-2">
+							<i class="mdi mdi-filter-variant"></i></button>
 						</div>
 						<div class="pr-1 mb-3 mb-xl-0">
-							<button type="button" class="btn btn-danger btn-icon ml-2"><i class="mdi mdi-star"></i></button>
+							<button type="button" class="btn btn-danger btn-icon ml-2">
+							<i class="mdi mdi-star"></i></button>
 						</div>
 						<div class="pr-1 mb-3 mb-xl-0">
-							<button type="button" class="btn btn-warning  btn-icon ml-2"><i class="mdi mdi-refresh"></i></button>
+							<button type="button" class="btn btn-warning  btn-icon ml-2">
+							<i class="mdi mdi-refresh"></i></button>
 						</div>
 						<div class="mb-3 mb-xl-0">
 							<div class="btn-group dropdown">
@@ -46,7 +50,7 @@
 						<div class="card">
 							<div class="card-body">
 								<div>
-									<h6 class="card-title mb-1">Basic Style Accordion</h6>
+									<h6 class="card-title mb-1">Patient Dashboard</h6>
 									<p class="text-muted card-sub-title">The default collapse behavior to create an accordion.</p>
 								</div>
 								<div aria-multiselectable="true" class="accordion" id="accordion" role="tablist">

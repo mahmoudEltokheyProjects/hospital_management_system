@@ -26,12 +26,13 @@ Route::group(
         Route::group([
             'prefix' => '/',
             'as' => 'site.',
-            'middleware' => ['guest:site']
+            'middleware' => ['guest:web']
         ], function ()
         {
-            Route::get('/', function () {
-                dd("Welcome in Frontend Website");
-                // return view('welcome');
+            Route::get('/', function ()
+            {
+                // dd("Welcome in Frontend Website");
+                return view('site.welcome');
             });
         });
 });
