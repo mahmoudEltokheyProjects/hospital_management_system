@@ -7,6 +7,7 @@ use App\Models\Doctor\DoctorTranslation;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Hash;
 
 class DoctorSeeder extends Seeder
 {

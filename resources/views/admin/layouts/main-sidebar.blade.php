@@ -22,7 +22,18 @@
             <ul class="side-menu">
                     <li class="side-item side-item-category">
                         {{ __('Frontend/frontend.sidebar.sidebar_title') }}
+                    </li>   
+                    {{-- +++++++++++++++++++++++++ languages ++++++++++++++++++++++++ --}}
+                    {{-- ================ Language Settings ================ --}}
+                    <li class="slide">
+                        <a class="side-menu__item" href="{{ url('/' . $page='home') }}">
+                            <i class="fa fa-home fa-lg ml-2" style="color:#5b6e88;"></i>
+                            <span class="side-menu__label">Language Settings</span>
+                        </a>
                     </li>
+
+
+
                     <li class="slide">
                         {{-- ++++++++++++++ الرئيسية +++++++++++++++++ --}}
                         <a class="side-menu__item" href="{{ url('/' . $page='home') }}">
@@ -83,72 +94,72 @@
                             {{-- @endcan --}}
                         </ul>
                     </li>
-                {{-- @endcan --}}
-                {{-- @can('التقارير') --}}
-                <li class="slide">
-                    <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
-                        <i class="fa fa-print fa-lg ml-2" style="color:#5b6e88;"></i>
-                        <span class="side-menu__label">
-                            {{ __('Frontend/frontend.sidebar.sidebar_sec3') }}
-                        </span>
-                        <i class="angle fe fe-chevron-down"></i>
-                    </a>
-                    <ul class="slide-menu">
-                        {{-- @can('تقرير الفواتير') --}}
-                        <li>
-                            <a class="slide-item" href="{{ url('/' . $page='invoices_report') }}">تقارير الفواتير</a>
-                        </li>
-                        {{-- @endcan --}}
-                        {{-- @can('تقرير العملاء') --}}
-                        <li>
-                            <a class="slide-item" href="{{ url('/' . $page='customers_report') }}">تقارير العملاء</a>
-                        </li>
-                        {{-- @endcan --}}
-                    </ul>
-                </li>
-                {{-- @endcan --}}
-                {{-- @can('المستخدمين') --}}
-                <li class="slide">
-                    <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
-                        <i class="fa fa-users fa-lg ml-2" style="color:#5b6e88;"></i>
-                        <span class="side-menu__label">
-                            {{ __('Frontend/frontend.sidebar.sidebar_sec4') }}
-                        </span>
-                        <i class="angle fe fe-chevron-down"></i>
-                    </a>
-                    <ul class="slide-menu">
-                        {{-- @can('قائمة المستخدمين') --}}
-                        <li>
-                            <a class="slide-item" href="{{ url('/' . $page='users') }}">قائمة المستخدمين</a>
-                        </li>
-                        {{-- @endcan --}}
-                        {{-- @can('صلاحيات المستخدمين') --}}
-                        <li>
-                            <a class="slide-item" href="{{ url('/' . $page='roles') }}">صلاحيات المستخدمين</a>
-                        </li>
-                        {{-- @endcan --}}
-                    </ul>
-                </li>
-                {{-- @endcan --}}
-                {{-- @can('الاعدادات') --}}
-                <li class="slide">
-                    <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
-                        <i class="fa fa-cog fa-lg ml-2" style="color:#5b6e88;"></i>
-                        <span class="side-menu__label">
-                            {{ __('Frontend/frontend.sidebar.sidebar_sec5') }}
-                        </span>
-                        <i class="angle fe fe-chevron-down"></i>
-                    </a>
-                    <ul class="slide-menu">
-                        {{-- @can('الاقسام') --}}
-                        <li> <a class="slide-item" href="{{ url('/' . $page='sections') }}">الاقسام</a> </li>
-                        {{-- @endcan --}}
-                        {{-- @can('المنتجات') --}}
-                        <li> <a class="slide-item" href="{{ url('/' . $page='products') }}">المنتجات</a> </li>
-                        {{-- @endcan --}}
-                    </ul>
-                </li>
-                {{-- @endcan --}}
+                    {{-- @endcan --}}
+                    {{-- @can('التقارير') --}}
+                    <li class="slide">
+                        <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
+                            <i class="fa fa-print fa-lg ml-2" style="color:#5b6e88;"></i>
+                            <span class="side-menu__label">
+                                {{ __('Frontend/frontend.sidebar.sidebar_sec3') }}
+                            </span>
+                            <i class="angle fe fe-chevron-down"></i>
+                        </a>
+                        <ul class="slide-menu">
+                            {{-- @can('تقرير الفواتير') --}}
+                            <li>
+                                <a class="slide-item" href="{{ url('/' . $page='invoices_report') }}">تقارير الفواتير</a>
+                            </li>
+                            {{-- @endcan --}}
+                            {{-- @can('تقرير العملاء') --}}
+                            <li>
+                                <a class="slide-item" href="{{ url('/' . $page='customers_report') }}">تقارير العملاء</a>
+                            </li>
+                            {{-- @endcan --}}
+                        </ul>
+                    </li>
+                    {{-- @endcan --}}
+                    {{-- @can('المستخدمين') --}}
+                    <li class="slide">
+                        <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
+                            <i class="fa fa-users fa-lg ml-2" style="color:#5b6e88;"></i>
+                            <span class="side-menu__label">
+                                {{ __('Frontend/frontend.sidebar.sidebar_sec4') }}
+                            </span>
+                            <i class="angle fe fe-chevron-down"></i>
+                        </a>
+                        <ul class="slide-menu">
+                            {{-- @can('قائمة المستخدمين') --}}
+                            <li>
+                                <a class="slide-item" href="{{ url('/' . $page='users') }}">قائمة المستخدمين</a>
+                            </li>
+                            {{-- @endcan --}}
+                            {{-- @can('صلاحيات المستخدمين') --}}
+                            <li>
+                                <a class="slide-item" href="{{ url('/' . $page='roles') }}">صلاحيات المستخدمين</a>
+                            </li>
+                            {{-- @endcan --}}
+                        </ul>
+                    </li>
+                    {{-- @endcan --}}
+                    {{-- @can('الاعدادات') --}}
+                    <li class="slide">
+                        <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}">
+                            <i class="fa fa-cog fa-lg ml-2" style="color:#5b6e88;"></i>
+                            <span class="side-menu__label">
+                                {{ __('Frontend/frontend.sidebar.sidebar_sec5') }}
+                            </span>
+                            <i class="angle fe fe-chevron-down"></i>
+                        </a>
+                        <ul class="slide-menu">
+                            {{-- @can('الاقسام') --}}
+                            <li> <a class="slide-item" href="{{ url('/' . $page='sections') }}">الاقسام</a> </li>
+                            {{-- @endcan --}}
+                            {{-- @can('المنتجات') --}}
+                            <li> <a class="slide-item" href="{{ url('/' . $page='products') }}">المنتجات</a> </li>
+                            {{-- @endcan --}}
+                        </ul>
+                    </li>
+                    {{-- @endcan --}}
             </ul>
         </div>
     </aside>
